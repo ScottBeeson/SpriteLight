@@ -19,6 +19,7 @@
       <sprite>sprites\sprChar1SouthStanding</sprite>
       <sprite>sprites\sprChar1SouthRunning</sprite>
     </sprites>
+    <sprite>sprites\slLight1_spr</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgGrass</background>
@@ -26,14 +27,19 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\initOutdoors.gml</script>
+    <script>scripts\slCreateLight.gml</script>
+    <script>scripts\slUpdateShadow.gml</script>
+    <script>scripts\slCreateShadow.gml</script>
+    <script>scripts\slUpdateLight.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\objShadowEngine</object>
     <object>objects\objGrass</object>
-    <object>objects\objLight</object>
     <object>objects\objPlayer</object>
     <object>objects\objTree</object>
-    <object>objects\objShadow</object>
+    <object>objects\slShadow</object>
+    <object>objects\slLight</object>
+    <object>objects\slCaster</object>
+    <object>objects\slEngine</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmOutside</room>

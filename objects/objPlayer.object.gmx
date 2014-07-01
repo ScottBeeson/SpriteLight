@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objShadowEngine</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,11 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited()
-//var self.shadow = instance_create(self.x, self.y, objPlayerShadow);
-//self.shadow.sprite_index = self.sprite_index;
-//self.shadow.image_alpha = .5;
-//self.shadow.image_blend = c_black;
+            <string>event_inherited();
+var self.light = slCreateLight(self.x, self.y, self, 0);
 </string>
           </argument>
         </arguments>
@@ -53,6 +50,8 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+slUpdateLight(light, self);
+
 if keyboard_check_pressed(vk_left) {
         self.sprite_index = sprChar1WestRunning; 
     } else if keyboard_check_pressed(vk_right) {
@@ -84,22 +83,6 @@ if keyboard_check_released(vk_left) {
     }
     
     
-//if (global.light.angle &gt; 100) then global.light.angle = -100;
-//if (global.light.angle &lt; -100) then global.light.angle = 100;
-
-//skewy = 1;
-//skewx = 1;
-//rotation = 0;
-//if (global.light.angle != 0) {
-//    skewx = 1 - abs(global.light.angle / 100) / 2;
-//    skewy = 1 + abs(global.light.angle / 200);
-//    rotation = 1 - (global.light.angle * 180) / 200
-//}
-//self.shadow.image_xscale = skewx;
-//self.shadow.image_yscale = skewy * .8;
-//self.shadow.image_angle = rotation;
-//self.shadow.x = self.x;
-//self.shadow.y = self.y;
 </string>
           </argument>
         </arguments>

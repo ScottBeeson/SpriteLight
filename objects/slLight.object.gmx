@@ -6,34 +6,8 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>slLight1_spr</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>var self.shadow = instance_create(self.x, self.y, objShadow);
-self.shadow.sprite_index = self.sprite_index;
-self.shadow.image_alpha = .5;
-self.shadow.image_blend = c_black;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -51,23 +25,20 @@ self.shadow.image_blend = c_black;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.light.angle &gt; 100) then global.light.angle = -100;
-if (global.light.angle &lt; -100) then global.light.angle = 100;
-
-skewy = 1;
-skewx = 1;
-rotation = 0;
-if (global.light.angle != 0) {
-    skewx = 1 - abs(global.light.angle / 100) / 2;
-    skewy = 1 + abs(global.light.angle / 200);
-    rotation = 1 - (global.light.angle * 180) / 200
+            <string>
+with (slCaster) {
+    if (collision_circle(other.x, other.y, 200, id, false, false)) {
+        if hasShadow = false {
+            //create shadow if not exist
+            var shadow = slCreateShadow(x,y);
+            hasShadow = true;
+       } else {      
+              //todo: update shadow with slUpdateShadow()
+       }         
+    } else {
+        //todo: need to destroy the shadow
+    }
 }
-self.shadow.image_xscale = skewx;
-self.shadow.image_yscale = skewy * .8;
-self.shadow.image_angle = rotation;
-
-self.shadow.x = self.x;
-self.shadow.y = self.y;
 </string>
           </argument>
         </arguments>
@@ -85,5 +56,8 @@ self.shadow.y = self.y;
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>0,0</point>
+    <point>46,46</point>
+  </PhysicsShapePoints>
 </object>
