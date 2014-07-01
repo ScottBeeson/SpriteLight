@@ -7,8 +7,7 @@ SpriteLight.gmx
 
 ####Usage
 
-* Import objShadowEngine  //todo: rename to slEngine or similar
-* Import objShadow        //todo: rnname to slShadow or similar
-* Import objLight         //todo: rename to slLight1 or similar
-* Make objShadowEngine a parent of the sprite you want to cast shadows.
-* Configure global light settings in objLight/create  //not yet implimented
+* Import sl* objects
+* import sl* scripts
+* call slCreateLight(x,y,owner,brightness)
+* call slUpdateLight(light, owner) from the step event of the light owner if it is movable
